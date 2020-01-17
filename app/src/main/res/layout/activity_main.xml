@@ -279,7 +279,7 @@
     </androidx.cardview.widget.CardView>
 
     <com.xyoye.comictools.ProgressButton
-        android:id="@+id/transform_bt"
+        android:id="@+id/convert_bt"
         style="@style/ProgressButton"
         android:layout_width="match_parent"
         android:layout_height="40dp"

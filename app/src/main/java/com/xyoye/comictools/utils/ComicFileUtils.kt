@@ -11,6 +11,11 @@ import java.io.IOException
 
 object ComicFileUtils {
 
+    /**
+     * convert encrypt file to normal webp file
+     *
+     * just skip 9 byte
+     */
     fun convert(inputPath: String, outputPath: String): Boolean {
         var fileInputStream: FileInputStream? = null
         var fileOutputStream: FileOutputStream? = null

@@ -13,6 +13,9 @@ import java.io.File
 
 object ComicInfoUtils {
 
+    /**
+     * get comic info by BiliBili cache folder or other cache folder
+     */
     fun getComicData(folderPath: String): ComicBean? {
         val folderFile = File(folderPath)
         if (!folderFile.exists() || !folderFile.isDirectory) {
@@ -31,6 +34,11 @@ object ComicInfoUtils {
             getOtherComicInfo(folderPath)
     }
 
+    /**
+     * is BiliBili cache folder
+     *
+     * the right rule : BiliBili_Cache_Folder/123(the comic id, must be a number)
+     */
     private fun checkComicFolder(folderPath: String): Boolean {
         if (!folderPath.startsWith(FileManagerDialog.COMIC_CACHE_PATH))
             return false
@@ -41,6 +49,7 @@ object ComicInfoUtils {
     }
 
     private fun getBiliBiliComicInfo(folderPath: String): ComicBean {
+        //ergodic comic folder
         val comicFile = File(folderPath)
         val comicBean = ComicBean()
         comicBean.comicId = comicFile.name
@@ -65,16 +74,18 @@ object ComicInfoUtils {
         }
         comicBean.chapterList = chapterList
 
+        //get more info by network
         fillInfoByNetWork(comicBean)
 
+        //get more info by index.dat file
         fillInfoByIndexFile(comicBean)
 
         return comicBean
     }
 
     private fun fillInfoByNetWork(comicBean: ComicBean) {
+        //get comic info by comic id
         NetworkUtils.getComicInfo(comicBean.comicId!!, object : NetworkCallback {
-
             override fun onSuccess(comicInfo: ComicNetworkInfo) {
                 comicBean.comicName = comicInfo.data?.title
                 for (chapter in comicBean.chapterList!!) {
@@ -117,6 +128,11 @@ object ComicInfoUtils {
         }
     }
 
+    /**
+     * not BiliBili cache folder
+     *
+     * the right rule : xxx/xxx(the folder must contains .jpg.view file)
+     */
     private fun getOtherComicInfo(folderPath: String): ComicBean {
         val chapterFile = File(folderPath)
         val comicBean = ComicBean()

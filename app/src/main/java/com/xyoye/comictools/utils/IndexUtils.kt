@@ -10,6 +10,10 @@ import kotlin.experimental.xor
  */
 
 object IndexUtils {
+
+    /**
+     * get page index info by index.dat file
+     */
     fun getIndexInfo(
         indexFilePath: String,
         comicId: String,
@@ -37,7 +41,7 @@ object IndexUtils {
             while (zipEntry != null) {
                 if ("index.dat" == zipEntry.name) {
                     val indexJson = getJsonData(zipInputStream)
-                    return JsonUtils.fromJson(indexJson, IndexBean::class.java)
+                    return Utils.fromJson(indexJson, IndexBean::class.java)
                 } else {
                     zipEntry = zipInputStream.nextEntry
                 }

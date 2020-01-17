@@ -32,8 +32,6 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.ComicNetworkInfo.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.ComicNetworkInfo.espresso:espresso-core:3.2.0'
 
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.blankj:utilcode:1.23.7'

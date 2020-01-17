@@ -1,5 +1,6 @@
 package com.xyoye.comictools.utils
 
+import com.google.gson.Gson
 import java.util.regex.Pattern
 
 /**
@@ -11,5 +12,18 @@ object Utils {
     fun isNum(str: String): Boolean {
         val pattern = Pattern.compile("^[\\d]*$")
         return pattern.matcher(str).matches()
+    }
+
+    fun <T> fromJson(jsonStr: String?, clazz: Class<T>): T? {
+        if (jsonStr == null || jsonStr.isEmpty()) {
+            return null
+        }
+        try {
+            return Gson().fromJson(jsonStr, clazz)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        return null
     }
 }

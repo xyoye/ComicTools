@@ -36,8 +36,7 @@ object NetworkUtils {
             val dataOutputStream = DataOutputStream(connection.outputStream)
 
             val params = "device=" + URLEncoder.encode(
-                "android",
-                Charsets.UTF_8.toString()
+                "android", Charsets.UTF_8.toString()
             ) + "&comic_id=" + URLEncoder.encode(comicId, Charsets.UTF_8.toString()).toString()
 
             dataOutputStream.writeBytes(params)
@@ -51,7 +50,7 @@ object NetworkUtils {
                 val response = StringBuilder(responseText)
                 println(response.toString())
                 val comicInfo =
-                    JsonUtils.fromJson(response.toString(), ComicNetworkInfo::class.java)
+                    Utils.fromJson(response.toString(), ComicNetworkInfo::class.java)
                 if (comicInfo?.code == 0) {
                     callback.onSuccess(comicInfo)
                 } else {
