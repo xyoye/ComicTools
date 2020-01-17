@@ -20,5 +20,5 @@ APP将联网自动识别漫画名及其它信息
 
 ## 录屏 ##
 <div>
-	<img src="https://raw.githubusercontent.com/xyoye/ComicTools/master/ScreenRecorder/2020-1-17.gif" width="200px">
+	<img src="https://github.com/xyoye/ComicTools/blob/master/ScreenRecorder/2020-1-17.gif" width="400px">
 </div>
