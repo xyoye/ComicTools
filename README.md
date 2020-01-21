@@ -2,7 +2,7 @@
 将BiliBili漫画缓存文件转换成可直接观看的webp文件
 
 ## 下载 ##
-[前往安装包下载页面](https://github.com/xyoye/ComicTools/blob/master/app/release/ComicTools.apk)
+[前往安装包下载页面](https://github.com/xyoye/ComicTools/tree/master/app/release)
 
 ## 使用 ##
 选择源目录，存在BiliBili漫画缓存目录将自动打开，选中需要转换的目录
