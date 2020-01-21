@@ -60,7 +60,8 @@ object ComicInfoUtils {
                 chapterBean.chapterId = chapterFile.name
                 val episodeList = ArrayList<ComicBean.ChapterBean.EpisodeBean>()
                 for (episodeFile in chapterFile.listFiles()) {
-                    if (episodeFile.absolutePath.endsWith(".jpg.view")) {
+                    if (episodeFile.absolutePath.endsWith(".jpg.view")
+                        || episodeFile.absolutePath.endsWith(".png.view")) {
                         val episodeBean = ComicBean.ChapterBean.EpisodeBean()
                         episodeBean.episodePath = episodeFile.absolutePath
                         episodeList.add(episodeBean)
@@ -140,7 +141,8 @@ object ComicInfoUtils {
         val episodeList = ArrayList<ComicBean.ChapterBean.EpisodeBean>()
 
         for (episodeFile in chapterFile.listFiles()) {
-            if (episodeFile.absolutePath.endsWith(".jpg.view")) {
+            if (episodeFile.absolutePath.endsWith(".jpg.view")
+                || episodeFile.absolutePath.endsWith(".png.view")) {
                 val episodeBean = ComicBean.ChapterBean.EpisodeBean()
                 episodeBean.episodePath = episodeFile.absolutePath
                 episodeList.add(episodeBean)
