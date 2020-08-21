@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                 val clipboardManager =
                     getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 val clipData = ClipData.newPlainText("OutPut", outputPath)
-                clipboardManager.primaryClip = clipData
+                clipboardManager.setPrimaryClip(clipData)
                 ToastUtils.showShort("输出路径已复制")
             }
         }
@@ -193,7 +193,7 @@ class MainActivity : AppCompatActivity() {
         for (chapter in mComicBean!!.chapterList!!) {
             //chapter folder
             val chapterName =
-                if (chapter.chapterNum.isNullOrBlank()) chapter.chapterId else "第" + chapter.chapterNum + "话 " + chapter.chapterName
+                if (chapter.chapterNum.isNullOrBlank()) chapter.chapterId else "${chapter.chapterNum} ${chapter.chapterName}"
             val chapterFolder = File(comicFolder, chapterName)
             if (!chapterFolder.exists())
                 chapterFolder.mkdir()
