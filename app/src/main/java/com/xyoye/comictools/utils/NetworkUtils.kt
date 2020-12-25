@@ -36,8 +36,8 @@ object NetworkUtils {
             val dataOutputStream = DataOutputStream(connection.outputStream)
 
             val params = "device=" + URLEncoder.encode(
-                "android", Charsets.UTF_8.toString()
-            ) + "&comic_id=" + URLEncoder.encode(comicId, Charsets.UTF_8.toString()).toString()
+                "android", "utf-8"
+            ) + "&comic_id=" + URLEncoder.encode(comicId,"utf-8").toString()
 
             dataOutputStream.writeBytes(params)
             dataOutputStream.flush()

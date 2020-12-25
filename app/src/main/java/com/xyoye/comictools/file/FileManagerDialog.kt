@@ -10,7 +10,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
-import com.xyoye.comictools.MainActivity
 import com.xyoye.comictools.R
 import kotlinx.android.synthetic.main.dialog_file_manager.*
 import java.io.File
@@ -28,7 +27,7 @@ class FileManagerDialog(
 ) : Dialog(mContext, R.style.Dialog) {
     companion object {
         public var COMIC_CACHE_PATH =
-            Environment.getExternalStorageDirectory().absolutePath + "/data/bilibili/comic/down"
+            Environment.getExternalStorageDirectory().absolutePath + "/Download"
     }
 
     private val fileList = ArrayList<FileManagerBean>()
@@ -83,15 +82,18 @@ class FileManagerDialog(
         )
 
         val childFileList = ArrayList<FileManagerBean>()
-        for (file: File in parentFile.listFiles()!!) {
-            if (file.isDirectory && !file.name.startsWith(".")) {
-                childFileList.add(
-                    FileManagerBean(
-                        file,
-                        file.name,
-                        false
+        val childFiles = parentFile.listFiles()
+        if (childFiles != null){
+            for (file: File in parentFile.listFiles()!!) {
+                if (file.isDirectory && !file.name.startsWith(".")) {
+                    childFileList.add(
+                        FileManagerBean(
+                            file,
+                            file.name,
+                            false
+                        )
                     )
-                )
+                }
             }
         }
 

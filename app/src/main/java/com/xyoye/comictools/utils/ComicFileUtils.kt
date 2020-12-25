@@ -13,8 +13,6 @@ object ComicFileUtils {
 
     /**
      * convert encrypt file to normal webp file
-     *
-     * just skip 9 byte
      */
     fun convert(inputPath: String, outputPath: String): Boolean {
         var fileInputStream: FileInputStream? = null
@@ -29,8 +27,7 @@ object ComicFileUtils {
             outputFile.createNewFile()
 
             fileInputStream = FileInputStream(inputFile)
-            val byteArray = ByteArray(fileInputStream.available() - 9)
-            fileInputStream.skip(9)
+            val byteArray = ByteArray(fileInputStream.available())
             fileInputStream.read(byteArray)
 
             fileOutputStream = FileOutputStream(outputFile)

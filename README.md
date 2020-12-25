@@ -1,6 +1,17 @@
 # ComicTools #
 将BiliBili漫画缓存文件转换成可直接观看的webp文件
 
+## 新版本说明 ##
+
+实测3.0.8版本，BiliBili漫画缓存目录已迁移至"/data/data/com.bilibili.comic/files/down"，改目录为APP私有目录，无法直接访问文件夹。且图片文件已不再加密（直接更改文件格式即可），因此此项目目前可视为一个BiliBili漫画文件名查询更改工具。
+
+3.0.8版本后使用说明，**使用有root权限的手机或模拟器**，将BiliBili漫画缓存目录（/data/data/com.bilibili.comic/files/down）下文件复制到下载目录（/storage/emulated/0/Download），再使用APP进行转换
+
+
+*1. 必须复制到Download目录下，否则无法网络查询漫画名*
+
+*2. 3.0.8为实测版本，具体在哪个版本修改了缓存路径未知*
+
 ## 下载 ##
 [前往安装包下载页面](https://github.com/xyoye/ComicTools/tree/master/app/release)
 

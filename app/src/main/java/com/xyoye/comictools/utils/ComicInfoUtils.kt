@@ -23,7 +23,7 @@ object ComicInfoUtils {
             return null
         }
 
-        if (folderFile.listFiles().isEmpty()) {
+        if (folderFile.listFiles().isNullOrEmpty()) {
             ToastUtils.showLong("文件夹为空")
             return null
         }
